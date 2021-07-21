@@ -7,23 +7,21 @@ import re
 import time
 ##########Begin
 url_1 = 'http://home.hendz.ru/overtime/logon'
-driver = webdriver.Firefox(executable_path = '/home/bair/PycharmProjects/pythonProject1/geckodriver')
+driver = webdriver.Firefox(executable_path='/home/bair/PycharmProjects/pythonProject1/geckodriver')
 driver.get(url_1)
 loginuser = driver.find_element_by_id('userlogin')
 loginpass = driver.find_element_by_id('userpass')
 loginuser.send_keys("b.imigeev")
 loginpass.send_keys("123456")
-print('driver well')
-#задержка ввода логина и пароля
+#задержка ввода логина и пароля 1c
 time.sleep(1)
 autorizz = driver.find_element_by_id('autoriz')
 autorizz.click()
-# задержка
+# задержка 1c
 time.sleep(1)
 add = driver.find_element_by_link_text('Добавить отчёт')
 add.click()
-print('ok')
-# Задержка
+# Задержка 1c
 time.sleep(1)
 spisok_id = []
 spisok_date = []
@@ -32,15 +30,15 @@ with open('/home/bair/PycharmProjects/pythonProject3/1.html') as file:
      src = file.read()
      soup = bs4.BeautifulSoup(src)
      for i in soup:
-         all_td = soup.findAll('td',headers = "col_1")
+         all_td = soup.findAll('td',headers="col_1")
          spisok_id = list(all_td)
-         all_date = soup.findAll('td',headers = "col_4")
+         all_date = soup.findAll('td',headers="col_4")
          spisok_date = list(all_date)
-         all_adress = soup.findAll('td',headers = "col_7")
+         all_adress = soup.findAll('td',headers="col_7")
          spisok_adress = list(all_adress)
-a=[]
-b=[]
-c=[]
+a = []
+b = []
+c = []
 for h in spisok_id:
     g = list(h)
     str_id = str(g)
@@ -108,7 +106,7 @@ for i3,index in enumerate(c):
                     stop2 = True
                     add = driver.find_element_by_link_text('Добавить отчёт')
                     add.click()
-                    count +=1
+                    count += 1
                     print(a[i1])
                     print(b[i2])
                     print(c[i3])
